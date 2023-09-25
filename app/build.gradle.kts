@@ -1,6 +1,8 @@
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
+  id("com.google.dagger.hilt.android")
+  kotlin("kapt")
 }
 
 android {
@@ -17,6 +19,16 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables {
       useSupportLibrary = true
+    }
+
+    // Room config
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments += mapOf(
+            "room.schemaLocation" to "$projectDir/schemas",
+            "room.incremental" to "true"
+        )
+      }
     }
   }
 
@@ -46,21 +58,50 @@ android {
   }
 }
 
+// Allow references to generated code
+kapt {
+  correctErrorTypes = true
+}
+
 dependencies {
 
-  implementation("androidx.core:core-ktx:1.12.0")
-  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-  implementation("androidx.activity:activity-compose:1.7.2")
-  implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+  // Android core libraries
+  val androidCoreVersion = "1.12.0"
+  val androidLifecycleVersion = "2.6.2"
+  implementation("androidx.core:core-ktx:$androidCoreVersion")
+  implementation("androidx.lifecycle:lifecycle-runtime-ktx:$androidLifecycleVersion")
+
+  // Compose libraries
+  val composeBomVersion = "2023.03.00"
+  val composeActivityVersion = "1.7.2"
+  implementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
   implementation("androidx.compose.ui:ui")
   implementation("androidx.compose.ui:ui-graphics")
   implementation("androidx.compose.ui:ui-tooling-preview")
   implementation("androidx.compose.material3:material3")
-  testImplementation("junit:junit:4.13.2")
-  androidTestImplementation("androidx.test.ext:junit:1.1.5")
-  androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-  androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+  implementation("androidx.activity:activity-compose:$composeActivityVersion")
+  androidTestImplementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
   androidTestImplementation("androidx.compose.ui:ui-test-junit4")
   debugImplementation("androidx.compose.ui:ui-tooling")
   debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+  // Room
+  val roomVersion = "2.5.2"
+  implementation("androidx.room:room-runtime:$roomVersion")
+  kapt("androidx.room:room-compiler:$roomVersion")
+
+  // Hilt
+  val hiltVersion = "2.44"
+  val hiltComposeVersion = "1.0.0"
+  implementation("com.google.dagger:hilt-android:$hiltVersion")
+  kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+  implementation("androidx.hilt:hilt-navigation-compose:$hiltComposeVersion")
+
+  // Testing
+  val jUnitVersion = "4.13.2"
+  val jUnitExtVersion = "1.1.5"
+  val espressoVersion = "3.5.1"
+  testImplementation("junit:junit:$jUnitVersion")
+  androidTestImplementation("androidx.test.ext:junit:$jUnitExtVersion")
+  androidTestImplementation("androidx.test.espresso:espresso-core:$espressoVersion")
 }
