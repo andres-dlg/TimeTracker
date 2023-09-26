@@ -6,6 +6,6 @@ import java.util.Date
 data class TimeEntry(
     val id: Int? = 0,
     val totalHours: Double = 0.0,
-    val date: Date,
+    val date: String,
     val notes: String?
 ): PresentationEntity
