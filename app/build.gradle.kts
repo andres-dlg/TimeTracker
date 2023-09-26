@@ -7,12 +7,12 @@ plugins {
 
 android {
   namespace = "com.dlgsoft.timetracker"
-  compileSdk = 33
+  compileSdk = 34
 
   defaultConfig {
     applicationId = "com.dlgsoft.timetracker"
     minSdk = 23
-    targetSdk = 33
+    targetSdk = 34
     versionCode = 1
     versionName = "1.0"
 
@@ -38,12 +38,8 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-  }
-  kotlinOptions {
-    jvmTarget = "1.8"
+  kotlin {
+    jvmToolchain(17)
   }
   buildFeatures {
     compose = true

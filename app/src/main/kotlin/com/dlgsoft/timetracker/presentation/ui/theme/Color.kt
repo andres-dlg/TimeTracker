@@ -1,4 +1,4 @@
-package com.dlgsoft.timetracker.ui.theme
+package com.dlgsoft.timetracker.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

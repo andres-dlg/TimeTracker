@@ -1,4 +1,4 @@
-package com.dlgsoft.timetracker.ui.theme
+package com.dlgsoft.timetracker.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

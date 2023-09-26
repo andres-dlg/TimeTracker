@@ -1,4 +1,4 @@
-package com.dlgsoft.timetracker
+package com.dlgsoft.timetracker.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dlgsoft.timetracker.ui.theme.TimeTrackerTheme
+import com.dlgsoft.timetracker.presentation.ui.theme.TimeTrackerTheme
 
 class MainActivity: ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
