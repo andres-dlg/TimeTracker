@@ -64,18 +64,17 @@ dependencies {
   // Android core libraries
   val androidCoreVersion = "1.12.0"
   val androidLifecycleVersion = "2.6.2"
+  val composeActivityVersion = "1.7.2"
+  val composeBomVersion = "2023.03.00"
   implementation("androidx.core:core-ktx:$androidCoreVersion")
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:$androidLifecycleVersion")
-
-  // Compose libraries
-  val composeBomVersion = "2023.03.00"
-  val composeActivityVersion = "1.7.2"
+  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$androidLifecycleVersion")
+  implementation("androidx.activity:activity-compose:$composeActivityVersion")
   implementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
   implementation("androidx.compose.ui:ui")
   implementation("androidx.compose.ui:ui-graphics")
   implementation("androidx.compose.ui:ui-tooling-preview")
   implementation("androidx.compose.material3:material3")
-  implementation("androidx.activity:activity-compose:$composeActivityVersion")
   androidTestImplementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
   androidTestImplementation("androidx.compose.ui:ui-test-junit4")
   debugImplementation("androidx.compose.ui:ui-tooling")
@@ -87,7 +86,7 @@ dependencies {
   kapt("androidx.room:room-compiler:$roomVersion")
 
   // Hilt
-  val hiltVersion = "2.44"
+  val hiltVersion = "2.48"
   val hiltComposeVersion = "1.0.0"
   implementation("com.google.dagger:hilt-android:$hiltVersion")
   kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")

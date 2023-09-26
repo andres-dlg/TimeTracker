@@ -1,9 +1,9 @@
-package com.dlgsoft.timetracker.di
+package com.dlgsoft.timetracker.di.modules
 
 import android.app.Application
 import androidx.room.Room
-import com.dlgsoft.timetracker.data.local.db.TimeTrackerDatabase
-import com.dlgsoft.timetracker.data.local.db.TimeTrackerDatabase.Companion.DB_NAME
+import com.dlgsoft.timetracker.data.db.TimeTrackerDatabase
+import com.dlgsoft.timetracker.data.db.TimeTrackerDatabase.Companion.DB_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

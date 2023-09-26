@@ -1,4 +1,4 @@
-package com.dlgsoft.timetracker.data.local.db.converters
+package com.dlgsoft.timetracker.data.db.converters
 
 import androidx.room.TypeConverter
 import java.util.Date

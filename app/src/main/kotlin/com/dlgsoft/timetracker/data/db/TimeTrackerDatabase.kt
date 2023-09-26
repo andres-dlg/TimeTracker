@@ -1,12 +1,12 @@
-package com.dlgsoft.timetracker.data.local.db
+package com.dlgsoft.timetracker.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.dlgsoft.timetracker.data.local.db.TimeTrackerDatabase.Companion.VERSION
-import com.dlgsoft.timetracker.data.local.db.converters.DateConverter
-import com.dlgsoft.timetracker.data.local.db.dao.TimeEntryDao
-import com.dlgsoft.timetracker.data.local.db.entities.TimeEntry
+import com.dlgsoft.timetracker.data.db.TimeTrackerDatabase.Companion.VERSION
+import com.dlgsoft.timetracker.data.db.converters.DateConverter
+import com.dlgsoft.timetracker.data.db.dao.TimeEntryDao
+import com.dlgsoft.timetracker.data.db.entities.TimeEntry
 
 @Database(
     version = VERSION,
