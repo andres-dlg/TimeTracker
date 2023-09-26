@@ -11,7 +11,7 @@ import java.util.Date
 interface TimeEntryDao {
 
   @Upsert
-  suspend fun insert(entry: TimeEntry): Int
+  suspend fun upsert(entry: TimeEntry)
 
   @Delete
   suspend fun remove(entry: TimeEntry)

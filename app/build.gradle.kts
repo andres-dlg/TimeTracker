@@ -22,12 +22,10 @@ android {
     }
 
     // Room config
-    javaCompileOptions {
-      annotationProcessorOptions {
-        arguments += mapOf(
-            "room.schemaLocation" to "$projectDir/schemas",
-            "room.incremental" to "true"
-        )
+    kapt {
+      arguments {
+        arg("room.incremental", "true")
+        arg("room.schemaLocation", "$projectDir/schemas")
       }
     }
   }
@@ -83,6 +81,7 @@ dependencies {
   // Room
   val roomVersion = "2.5.2"
   implementation("androidx.room:room-runtime:$roomVersion")
+  implementation("androidx.room:room-ktx:$roomVersion")
   kapt("androidx.room:room-compiler:$roomVersion")
 
   // Hilt

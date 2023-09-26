@@ -1,0 +1,3 @@
+package com.dlgsoft.timetracker.presentation.common
+
+interface PresentationEntity

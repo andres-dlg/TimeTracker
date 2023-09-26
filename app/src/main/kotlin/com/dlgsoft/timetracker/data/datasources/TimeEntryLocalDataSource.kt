@@ -14,7 +14,7 @@ class TimeEntryLocalDataSource(
       timeEntryDao.getEntries(fromDate, toDate)
 
   override suspend fun insertTimeEntry(id: Int?, totalHours: Double, date: Date, notes: String?) {
-    timeEntryDao.insert(
+    timeEntryDao.upsert(
         TimeEntry(id, totalHours, date, notes)
     )
   }

@@ -1,3 +1,6 @@
 package com.dlgsoft.timetracker.domain.common
 
-interface DomainEntity
+interface DomainEntity<T> {
+
+  fun toPresentationEntity(): T
+}

@@ -7,6 +7,7 @@ import com.dlgsoft.timetracker.data.datasources.TimeEntryLocalDataSource
 import com.dlgsoft.timetracker.data.datasources.TimeEntryRemoteDataSource
 import com.dlgsoft.timetracker.data.db.dao.TimeEntryDao
 import com.dlgsoft.timetracker.data.repositories.TimeEntryRepositoryImpl
+import com.dlgsoft.timetracker.domain.interactors.GetTimeEntriesUseCase
 import com.dlgsoft.timetracker.domain.repositories.TimeEntryRepository
 import dagger.Module
 import dagger.Provides
@@ -39,5 +40,12 @@ class TimeEntryModule {
       timeEntryDataSourceFactory: TimeEntryDataSourceFactory
   ): TimeEntryRepository = TimeEntryRepositoryImpl(
       timeEntryDataSourceFactory
+  )
+
+  @Provides
+  fun provideGetTimeEntriesUseCase(
+      timeEntryRepository: TimeEntryRepository
+  ): GetTimeEntriesUseCase = GetTimeEntriesUseCase(
+      timeEntryRepository
   )
 }
