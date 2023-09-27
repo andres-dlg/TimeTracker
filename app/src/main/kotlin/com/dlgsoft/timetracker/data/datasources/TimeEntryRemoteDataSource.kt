@@ -2,8 +2,9 @@ package com.dlgsoft.timetracker.data.datasources
 
 import com.dlgsoft.timetracker.data.db.entities.TimeEntry
 import java.util.Date
+import javax.inject.Inject
 
-class TimeEntryRemoteDataSource: TimeEntryDataSource {
+class TimeEntryRemoteDataSource @Inject constructor(): TimeEntryDataSource {
 
   override suspend fun getById(id: Int): TimeEntry {
     TODO("Not yet implemented")

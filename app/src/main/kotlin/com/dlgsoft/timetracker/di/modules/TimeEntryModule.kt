@@ -8,13 +8,14 @@ import com.dlgsoft.timetracker.data.datasources.TimeEntryRemoteDataSource
 import com.dlgsoft.timetracker.data.db.dao.TimeEntryDao
 import com.dlgsoft.timetracker.data.repositories.TimeEntryRepositoryImpl
 import com.dlgsoft.timetracker.domain.interactors.GetTimeEntriesUseCase
+import com.dlgsoft.timetracker.domain.interactors.SaveTimeEntryUseCase
 import com.dlgsoft.timetracker.domain.repositories.TimeEntryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 @Module
 class TimeEntryModule {
 
@@ -46,6 +47,13 @@ class TimeEntryModule {
   fun provideGetTimeEntriesUseCase(
       timeEntryRepository: TimeEntryRepository
   ): GetTimeEntriesUseCase = GetTimeEntriesUseCase(
+      timeEntryRepository
+  )
+
+  @Provides
+  fun provideSaveTimeEntriesUseCase(
+      timeEntryRepository: TimeEntryRepository
+  ): SaveTimeEntryUseCase = SaveTimeEntryUseCase(
       timeEntryRepository
   )
 }

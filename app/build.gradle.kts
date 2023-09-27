@@ -67,6 +67,7 @@ dependencies {
   implementation("androidx.core:core-ktx:$androidCoreVersion")
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:$androidLifecycleVersion")
   implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$androidLifecycleVersion")
+  implementation("androidx.lifecycle:lifecycle-runtime-compose:$androidLifecycleVersion")
   implementation("androidx.activity:activity-compose:$composeActivityVersion")
   implementation(platform("androidx.compose:compose-bom:$composeBomVersion"))
   implementation("androidx.compose.ui:ui")

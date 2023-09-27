@@ -3,8 +3,9 @@ package com.dlgsoft.timetracker.data.datasources
 import com.dlgsoft.timetracker.data.db.dao.TimeEntryDao
 import com.dlgsoft.timetracker.data.db.entities.TimeEntry
 import java.util.Date
+import javax.inject.Inject
 
-class TimeEntryLocalDataSource(
+class TimeEntryLocalDataSource @Inject constructor(
     private val timeEntryDao: TimeEntryDao
 ): TimeEntryDataSource {
 

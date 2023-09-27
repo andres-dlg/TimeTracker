@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,7 +27,8 @@ import com.dlgsoft.timetracker.presentation.entities.TimeEntry
 fun TimeEntry(modifier: Modifier, timeEntry: TimeEntry) {
   Card(
       modifier = modifier,
-      border = BorderStroke(width = 2.dp, color = MaterialTheme.colorScheme.primary)
+      border = BorderStroke(width = 2.dp, color = MaterialTheme.colorScheme.primary),
+      elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
   ) {
     Column(
         modifier = Modifier
